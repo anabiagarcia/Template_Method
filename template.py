@@ -23,9 +23,14 @@ class OrdenadaUltimaLetra(OrdenadaPalavras):
         #Ordena pela última letra e o critério de desempate é o restante da palavra 
         return (palavra[-1].lower(), palavra.lower())
 
+class OrdenadaTamanho(OrdenadaPalavras):
+    
+    def regra_ordenacao(self, palavra):
+        return (len(palavra), palavra.lower())
+
 
 # Teste da última letra 
-palavras = [
+palavras_1 = [
     "ana",
     "beatriz",
     "mario",
@@ -34,6 +39,15 @@ palavras = [
     "camile",
     "adilson"
 ]
+
+palavras_2 = palavras_1.copy()
+
+print("Ordenada pelo critério: Ordem alfabética da última letra")
 ordenador = OrdenadaUltimaLetra()
-ordenador.executar(palavras)
-print(palavras)
+ordenador.executar(palavras_1)
+print(palavras_1)
+
+print("Ordenada pelo critério: Tamanho do texto")
+ordenador = OrdenadaTamanho()
+ordenador.executar(palavras_2)
+print(palavras_2)
