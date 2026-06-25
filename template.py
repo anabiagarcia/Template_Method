@@ -9,10 +9,12 @@ class OrdenaPalavras(ABC):
         palavras.sort(key=self.regra_ordenacao)
 
     def vazio(self, palavras: list[str]) -> None:
+    def vazio(self, palavras: list[str]) -> None:
         if not palavras:
             raise ValueError("Lista de palavras vazia.")
 
     @abstractmethod
+    def regra_ordenacao(self, palavra: str) -> Any:
     def regra_ordenacao(self, palavra: str) -> Any:
         pass
 
